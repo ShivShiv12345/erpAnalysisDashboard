@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Toast Container -->
     <div id="toast-container" class="toast-container"></div>
@@ -20,94 +22,97 @@
         </header>
 
         <!-- Tab Navigation -->
-        <div class="tab-container">
-            <button class="tab-button active" onclick="switchTab('ar')">
-                <i class="fas fa-file-invoice-dollar"></i>
-                AR Financing
-            </button>
-            <button class="tab-button" onclick="switchTab('ap')">
-                <i class="fas fa-receipt"></i>
-                AP Financing
-            </button>
-        </div>
+        <a href="https://shivshiv12345.github.io/AP-AR-finance/" class="back-inv">
+            < Back to Invoice upload system</a>
+                <div class="tab-container">
+                    <button class="tab-button active" onclick="switchTab('ar')">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        AR Financing
+                    </button>
+                    <button class="tab-button" onclick="switchTab('ap')">
+                        <i class="fas fa-receipt"></i>
+                        AP Financing
+                    </button>
+                </div>
 
-        <!-- AR Financing Tab -->
-        <div id="ar-tab" class="tab-content active">
-            <!-- Metrics Cards -->
-            <div class="metrics-grid">
-                 <div class="metric-card" data-tooltip="Sum of all invoice amounts from AR CRM">
-                    <div class="metric-icon ar-secondary">
-                        <i class="fas fa-file-invoice"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Invoice Amount</h3>
-                        <p class="metric-value" id="ar-total-invoice">$0</p>
-                    </div>
-                </div>
-                <div class="metric-card" data-tooltip="Sum of all loan amounts from AR CRM">
-                    <div class="metric-icon ar-primary">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Loan Amount</h3>
-                        <p class="metric-value" id="ar-total-loan">$0</p>
-                    </div>
-                </div>
-               
-                <div class="metric-card" data-tooltip="Count of eligible invoices in AR CRM">
-                    <div class="metric-icon ar-accent">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Eligible Invoices</h3>
-                        <p class="metric-value" id="ar-eligible-count">0</p>
-                    </div>
-                </div>
-            </div>
+                <!-- AR Financing Tab -->
+                <div id="ar-tab" class="tab-content active">
+                    <!-- Metrics Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card" data-tooltip="Sum of all invoice amounts from AR CRM">
+                            <div class="metric-icon ar-secondary">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Invoice Amount</h3>
+                                <p class="metric-value" id="ar-total-invoice">$0</p>
+                            </div>
+                        </div>
+                        <div class="metric-card" data-tooltip="Sum of all loan amounts from AR CRM">
+                            <div class="metric-icon ar-primary">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Loan Amount</h3>
+                                <p class="metric-value" id="ar-total-loan">$0</p>
+                            </div>
+                        </div>
 
-            <!-- Analysis Section -->
-            <div class="analysis-section">
-                <div class="section-header">
-                    <h2>Analysis</h2>
-                    <div class="filter-container">
-                        <select id="ar-batch-filter" onchange="filterARData()">
-                            <option value="all">Select All</option>
-                        </select>
+                        <div class="metric-card" data-tooltip="Count of eligible invoices in AR CRM">
+                            <div class="metric-icon ar-accent">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Eligible Invoices</h3>
+                                <p class="metric-value" id="ar-eligible-count">0</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="charts-grid">
-                    <!-- <div class="chart-item">
+
+                    <!-- Analysis Section -->
+                    <div class="analysis-section">
+                        <div class="section-header">
+                            <h2>Analysis</h2>
+                            <div class="filter-container">
+                                <select id="ar-batch-filter" onchange="filterARData()">
+                                    <option value="all">Select All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container1">
+                            <!-- <div class="chart-item">
                         <h3>Bar Chart</h3>
                         <canvas id="ar-bar-chart"></canvas>
                     </div> -->
-                    <!-- <div class="chart-item">
+                            <!-- <div class="chart-item">
                         <h3>Pie Chart</h3>
                         <canvas id="ar-pie-chart"></canvas>
                     </div> -->
-                    <div class="chart-item">
-                        <h3>Line Chart</h3>
-                        <canvas id="ar-line-chart"></canvas>
+                            <div class="col-1" style="width: 30%;">
+                                <h3>Line Chart</h3>
+                                <canvas id="ar-line-chart"></canvas>
+                            </div>
+                            <div class="col-2" style="width: 70%; position: relative;">
+                            <table id="ar-data-table" class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Batch ID</th>
+                                        <th>Customer</th>
+                                        <th>Invoice #</th>
+                                        <th>Amount</th>
+                                        <th>Loan Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        </div>
+                        
                     </div>
-                </div>
-                <div class="data-table-container">
-                    <table id="ar-data-table" class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Batch ID</th>
-                                <th>Customer</th>
-                                <th>Invoice #</th>
-                                <th>Amount</th>
-                                <th>Loan Amount</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-             <button><a href="https://prashantgolhar.github.io/erp_user/">Back to Invoice upload system</a> </button>
-            <!-- Upload Section -->
-            <!-- <div class="upload-section">
+
+                    <!-- Upload Section -->
+                    <!-- <div class="upload-section">
                 <h2>Invoice Upload</h2>
                 <div class="upload-form">
                     <select id="ar-upload-type">
@@ -122,93 +127,90 @@
                     <button class="sample-btn" onclick="downloadSample('ar')">Download Sample File</button>
                 </div>
             </div> -->
-        </div>
+                </div>
 
-        <!-- AP Financing Tab -->
-        <div id="ap-tab" class="tab-content">
-            <!-- Metrics Cards -->
-            <div class="metrics-grid ap-grid">
-                <div class="metric-card" data-tooltip="Sum of all invoice amounts from AP CRM">
-                    <div class="metric-icon ap-primary">
-                        <i class="fas fa-file-invoice"></i>
+                <!-- AP Financing Tab -->
+                <div id="ap-tab" class="tab-content">
+                    <!-- Metrics Cards -->
+                    <div class="metrics-grid ap-grid">
+                        <div class="metric-card" data-tooltip="Sum of all invoice amounts from AP CRM">
+                            <div class="metric-icon ap-primary">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Invoice Amount</h3>
+                                <p class="metric-value" id="ap-total-invoice">$0</p>
+                            </div>
+                        </div>
+                        <div class="metric-card" data-tooltip="Sum of all payment amounts from AP CRM">
+                            <div class="metric-icon ap-secondary">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Early Payment Amount</h3>
+                                <p class="metric-value" id="ap-total-payment">$0</p>
+                            </div>
+                        </div>
+                        <div class="metric-card" data-tooltip="Invoice Amount - Payment Amount for all records">
+                            <div class="metric-icon ap-accent">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Discounting/Saving Amount</h3>
+                                <p class="metric-value" id="ap-discount-amount">$0</p>
+                            </div>
+                        </div>
+                        <div class="metric-card" data-tooltip="Count of invoices available in AP CRM">
+                            <div class="metric-icon ap-info">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <div class="metric-content">
+                                <h3>Total Invoices Available</h3>
+                                <p class="metric-value" id="ap-invoice-count">0</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="metric-content">
-                        <h3>Total Invoice Amount</h3>
-                        <p class="metric-value" id="ap-total-invoice">$0</p>
-                    </div>
-                </div>
-                <div class="metric-card" data-tooltip="Sum of all payment amounts from AP CRM">
-                    <div class="metric-icon ap-secondary">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Early Payment Amount</h3>
-                        <p class="metric-value" id="ap-total-payment">$0</p>
-                    </div>
-                </div>
-                <div class="metric-card" data-tooltip="Invoice Amount - Payment Amount for all records">
-                    <div class="metric-icon ap-accent">
-                        <i class="fas fa-percentage"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Discounting/Saving Amount</h3>
-                        <p class="metric-value" id="ap-discount-amount">$0</p>
-                    </div>
-                </div>
-                <div class="metric-card" data-tooltip="Count of invoices available in AP CRM">
-                    <div class="metric-icon ap-info">
-                        <i class="fas fa-list"></i>
-                    </div>
-                    <div class="metric-content">
-                        <h3>Total Invoices Available</h3>
-                        <p class="metric-value" id="ap-invoice-count">0</p>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Analysis Section -->
-            <div class="analysis-section">
-                <div class="section-header">
-                    <h2>Analysis</h2>
-                    <div class="filter-container">
-                        <select id="ap-batch-filter" onchange="filterAPData()">
-                            <option value="all">Select All</option>
-                        </select>
+                    <!-- Analysis Section -->
+                    <div class="analysis-section">
+                        <div class="section-header">
+                            <h2>Analysis</h2>
+                            <div class="filter-container">
+                                <select id="ap-batch-filter" onchange="filterAPData()">
+                                    <option value="all">Select All</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="container1">
+
+                            <div class="col-1" style="width: 30%;">
+                                <h3>Line Chart</h3>
+                                <canvas id="ap-line-chart"></canvas>
+                            </div>
+                            <div class="col-2" style="width: 70%; position: relative;">
+                                <!-- <div class="data-table-container"> -->
+                                <table id="ap-data-table" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Batch ID</th>
+                                            <th>Vendor Name</th>
+                                            <th>Invoice Number</th>
+                                            <th>Invoice Amount</th>
+                                            <th>Early Payment Amount</th>
+                                            <th>Discount/Saving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style="width: 100%;"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
-                <div class="charts-grid">
-                    <!-- <div class="chart-item">
-                        <h3>Bar Chart</h3>
-                        <canvas id="ap-bar-chart"></canvas>
-                    </div> -->
-                    <!-- <div class="chart-item">
-                        <h3>Doughnut Chart</h3>
-                        <canvas id="ap-doughnut-chart"></canvas>
-                    </div> -->
-                    <div class="chart-item">
-                        <h3>Line Chart</h3>
-                        <canvas id="ap-line-chart"></canvas>
-                    </div>
-                </div>
-                <div class="data-table-container">
-                    <table id="ap-data-table" class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Batch ID</th>
-                                <th>Vendor Name</th>
-                                <th>Invoice Number</th>
-                                <th>Invoice Amount</th>
-                                <th>Early Payment Amount</th>
-                                <th>Discount/Saving</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-            <button><a href="https://prashantgolhar.github.io/erp_user/">Back to Invoice upload system</a> </button>
-            <!-- Upload Section -->
-            <!-- <div class="upload-section">
+
+                <!-- Upload Section -->
+                <!-- <div class="upload-section">
                 <h2>Invoice Upload</h2>
                 <div class="upload-form">
                     <select id="ap-upload-type">
@@ -223,7 +225,7 @@
                     <button class="sample-btn" onclick="downloadSample('ap')">Download Sample File</button>
                 </div>
             </div> -->
-        </div>
+    </div>
     </div>
 
     <!-- Tooltip -->
@@ -231,4 +233,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
