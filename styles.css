@@ -1,6 +1,8 @@
 /* Design System Variables */
 :root {
     --primary: hsl(221, 83%, 53%);
+    --primary1: hsl(19, 98%, 50%);
+    --primary2: hsl(19, 87%, 64%);
     --primary-foreground: hsl(210, 40%, 98%);
     --secondary: hsl(210, 40%, 96.1%);
     --secondary-foreground: hsl(240, 10%, 9%);
@@ -18,12 +20,12 @@
     --accent: hsl(220, 14%, 96%);
     --accent-foreground: hsl(240, 10%, 9%);
     --muted: hsl(220, 14%, 96%);
-    --muted-foreground: hsl(220, 9%, 46%);
+    --muted-foreground: hsl(223, 21%, 52%);
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary), hsl(221, 83%, 65%));
-    --gradient-success: linear-gradient(135deg, var(--success), hsl(142, 76%, 50%));
-    --gradient-info: linear-gradient(135deg, var(--info), hsl(199, 89%, 60%));
+    --gradient-primary: linear-gradient(135deg, var(--primary1), hsla(40, 95%, 50%, 0.821));
+    --gradient-success: linear-gradient(135deg, var(--success), hsl(142, 86%, 41%));
+    --gradient-info: linear-gradient(135deg, var(--info), hsl(199, 90%, 49%));
     --gradient-warning: linear-gradient(135deg, var(--warning), hsl(38, 92%, 65%));
     
     /* Shadows */
@@ -37,17 +39,7 @@
     
     --radius: 0.5rem;
 }
-.back-inv{
-    text-decoration: none;
-    color: white;
-    background-color:  hsl(27, 100%, 56%);
-    margin: 12px;
-    padding: 5px;
-    outline: 2px solid wheat;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -60,6 +52,13 @@ body {
     background: var(--background);
     color: var(--foreground);
     line-height: 1.6;
+}
+.back{
+    background-color: rgb(255, 136, 0);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--primary-foreground);
+    text-decoration: none;
 }
 
 .container {
@@ -82,6 +81,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 0.5rem;
+    
 }
 
 .header-subtitle {
@@ -116,15 +116,15 @@ body {
 }
 
 .tab-button:hover {
-    color: var(--primary);
+    color: var(--primary2);
     background: var(--accent);
 }
 
 .tab-button.active {
-    color: var(--primary);
-    border-bottom-color: var(--primary);
-    background: var(--card);
-    background: hsl(27, 78%, 74%);
+    color: var(--primary1);
+    border-bottom-color: var(--primary1);
+    background: var(--accent);
+    font-weight: 600;
 }
 
 .tab-button i {
@@ -268,23 +268,7 @@ body {
     padding: 1.5rem;
     min-height: 350px;
     position: relative;
-     grid-template-columns: 1fr 1fr 1fr;
 }
-.container1{
-    display: flex;
-    width: 100%;
-    height: 400px;
-    gap:15px;
-    /* position: relative; */
-    
-}
-.col-2{
-    overflow-y: scroll;
-    border: 2px solid gray;
-    
-}
-
-
 
 .chart-item h3 {
     font-size: 1.1rem;
@@ -298,44 +282,259 @@ body {
     max-height: 280px;
 }
 
+
+/* Analysis Section Styles */
+.analysis-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem;
+    background: var(--card);
+    border-radius: var(--radius);
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+}
+
+.date-filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.date-filter-group label {
+    color: var(--foreground);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.date-filter-group input[type="date"],
+.date-filter-group select {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 0.9rem;
+}
+
+.analysis-content {
+    display: flex;
+    /* gap: 1.5rem; */
+    align-items: stretch;
+    height: 500px;
+}
+
+.chart-container-35 {
+    flex: 0 0 35%;
+    background: var(--card);
+    /* border-radius: var(--radius); */
+   border-radius: 2% 0% 0% 2%;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chart-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.chart-header h3 {
+    /* margin: 0 0 1rem 0; */
+    color: var(--foreground);
+    font-size: 1.1rem;
+}
+
+.chart-filters {
+    background: var(--accent);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+}
+
+.chart-filters .date-filter-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.chart-filters label {
+    color: var(--foreground);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.chart-filters input[type="date"],
+.chart-filters select {
+    padding: 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 0.5rem;
+}
+
+.chart-content {
+    flex: 1;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-content canvas {
+    max-height: 100% !important;
+    max-width: 100% !important;
+}
+
+.table-container-65 {
+    flex: 0 0 65%;
+    background: var(--card);
+    /* border-radius: var(--radius); */
+    border-radius: 0% 2% 2% 0%;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.table-header h3 {
+    margin: 0;
+    color: var(--foreground);
+    font-size: 1.1rem;
+}
+
+.table-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.table-filter label {
+    color: var(--foreground);
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+.table-filter select {
+    padding: 0.4rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--background);
+    color: var(--foreground);
+    font-size: 0.85rem;
+}
+
 @media (max-width: 768px) {
     .charts-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .analysis-content {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .chart-container-35,
+    .table-container-65 {
+        flex: 1;
+        height: 400px;
+    }
+    
+    .chart-filters .date-filter-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .table-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 }
 
 /* Enhanced Data Table */
 .data-table-container {
-    background: var(--background);
-    border-radius: var(--radius);
+    flex: 1;
     overflow: hidden;
+    border-radius: 0% 0% 2% 0%;
     border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    /* margin: 0 1.5rem 1.5rem 1.5rem; */
+    border-left: 0px;
 }
 
 .data-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .data-table thead {
     background: var(--gradient-primary);
     color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.sticky-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+    
 }
 
 .data-table th {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     text-align: left;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
+    width: 11%;
+}
+
+.data-table tbody {
+    overflow-y: auto;
+    flex: 1;
+    display: block;
+    max-height: calc(100% - 60px);
+}
+
+.data-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .data-table td {
-    padding: 1rem;
+    padding: 0.75rem 0.5rem;
     border-bottom: 1px solid var(--border);
     transition: var(--transition-fast);
+    font-size: 0.75rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .data-table tbody tr:hover {
